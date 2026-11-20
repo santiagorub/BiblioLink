@@ -66,6 +66,7 @@ public class PrestamosController : ControllerBase
 
     [ApiKey]
     [HttpGet("activos/{matricula}")]
+    [AllowAnonymous]
     //no lleva try/catch porque el servicio no lanza excepciones de negocio en este caso
     public async Task<IActionResult> ActivosPorMatricula(string matricula, CancellationToken ct) => Ok(await _service.ListarActivosPorMatriculaAsync(matricula, ct));
 
